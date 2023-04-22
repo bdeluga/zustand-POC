@@ -1,9 +1,13 @@
 import { historyStore, userStore } from "@/useStore";
+import { shallow } from "zustand/shallow";
 
 const Gamble = () => {
-  const { user, gamble } = userStore();
+  const { user, gamble } = userStore(
+    (state) => ({ user: state.user, gamble: state.gamble }),
+    shallow
+  );
 
-  const { addHistory } = historyStore();
+  const addHistory = historyStore((state) => state.addHistory);
 
   const play = () => {
     const balance = Math.random() > 0.15 ? -1000 : 1000;

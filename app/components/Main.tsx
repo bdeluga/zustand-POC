@@ -3,9 +3,17 @@
 import { userStore } from "@/useStore";
 import Gamble from "./Gamble";
 import History from "./History";
+import { shallow } from "zustand/shallow";
 
 const Main = () => {
-  const { user, logIn } = userStore();
+  // get only needed values from store, use shallow to prevent rerendering
+  const { user, logIn } = userStore(
+    (state) => ({
+      user: state.user,
+      logIn: state.logIn,
+    }),
+    shallow
+  );
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

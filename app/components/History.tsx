@@ -2,7 +2,8 @@
 import { historyStore } from "@/useStore";
 
 const History = () => {
-  const { history } = historyStore();
+  // get only needed values from store, use shallow to prevent rerendering
+  const history = historyStore((state) => state.history);
 
   return (
     <div className="flex flex-col h-96 overflow-y-auto mb-10 text-center">

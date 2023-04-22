@@ -1,7 +1,8 @@
 import { create } from "zustand";
 
-//immer needs to be included via npm i immer
+//immer needs to be installed via npm i immer
 import { immer } from "zustand/middleware/immer";
+
 interface UserStore {
   user: {
     name: string;
