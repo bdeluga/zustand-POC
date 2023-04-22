@@ -1,4 +1,4 @@
-import { historyStore, userStore } from "@/app/useStore";
+import { historyStore, userStore } from "@/useStore";
 
 const Gamble = () => {
   const { user, gamble } = userStore();

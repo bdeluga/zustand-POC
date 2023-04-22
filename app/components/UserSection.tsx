@@ -1,5 +1,5 @@
 "use client";
-import { userStore } from "@/app/useStore";
+import { userStore } from "@/useStore";
 import { shallow } from "zustand/shallow";
 import Image from "next/image";
 

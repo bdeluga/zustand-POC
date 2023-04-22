@@ -1,5 +1,5 @@
 "use client";
-import { historyStore } from "@/app/useStore";
+import { historyStore } from "@/useStore";
 
 const History = () => {
   const { history } = historyStore();

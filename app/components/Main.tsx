@@ -1,6 +1,6 @@
 "use client";
 
-import { userStore } from "@/app/useStore";
+import { userStore } from "@/useStore";
 import Gamble from "./Gamble";
 import History from "./History";
 
