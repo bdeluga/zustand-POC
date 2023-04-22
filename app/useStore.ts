@@ -1,5 +1,7 @@
 import { create } from "zustand";
 
+//immer needs to be included via npm i immer
+import { immer } from "zustand/middleware/immer";
 interface UserStore {
   user: {
     name: string;
@@ -35,10 +37,12 @@ interface HistoryStore {
   addHistory: (value: number) => void;
 }
 
-export const historyStore = create<HistoryStore>((set) => ({
-  history: [],
-  addHistory: (value: number) =>
-    set((state) => ({
-      history: [...state.history, { id: Date.now().toString(), value }],
-    })),
-}));
+export const historyStore = create(
+  immer<HistoryStore>((set) => ({
+    history: [],
+    addHistory: (value) =>
+      set((state) => {
+        state.history.push({ id: Date.now().toString(), value });
+      }),
+  }))
+);
